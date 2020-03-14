@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc119 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc122 {
+	color: #FF8000;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?php</span><span class="sc118">
+</span><span class="sc125">//---------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//ProjectName:  Capstone ABET accredidation website for </span><span class="sc118">
+</span><span class="sc125">//          ET college at NMSU</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//ModuleName: AE/CET/Courses/Views/indexBody.php</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Purpose:  This is the HTML content that is rendered in the</span><span class="sc118">
+</span><span class="sc125">//       index.php page</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Includes:     AE_Docs.php</span><span class="sc118">
+</span><span class="sc125">//              AE_UTils.php</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Functions:</span><span class="sc118">
+</span><span class="sc125">//  getContent(), getRow()</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Author: Ronald Espinoza | rrespino@nmsu.edu</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Copywright 2016 &amp;copy;</span><span class="sc118">
+</span><span class="sc125">//New Mexico State University College of Engineering Technology</span><span class="sc118">
+</span><span class="sc125">// All rights reserved  </span><span class="sc118">
+</span><span class="sc125">//=================================================================================</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Edits and Profreading done</span><span class="sc118">
+</span><span class="sc125">// by:___________________  Date:__|__|__</span><span class="sc118">
+</span><span class="sc125">//   Note:_____________________________________</span><span class="sc118">
+</span><span class="sc125">//      rrespino.com            2017</span><span class="sc118">
+</span><span class="sc125">//          Cleanup for iframe rendering</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//---------------------------------------------------------------------------------</span><span class="sc118">
+
+</span><span class="sc125">//////////////////////////////////////////////////////////////////////////////////////////////////////</span><span class="sc118">
+</span><span class="sc125">//function getContent()</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//description:</span><span class="sc118">
+</span><span class="sc125">//this function builds the content for a web page between the &lt;body&gt; element tags</span><span class="sc118">
+</span><span class="sc125">//The reason some variables are not used is due to the function being called for dynamic content </span><span class="sc118">
+</span><span class="sc125">//  building based off user interaction with the web application</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Vars Used:</span><span class="sc118">
+</span><span class="sc125">//  $majorLong = "Electronics and Computer Engineering"</span><span class="sc118">
+</span><span class="sc125">//  $majorShort = "ECET"</span><span class="sc118">
+</span><span class="sc125">//  $i = count of total files in uploads directory</span><span class="sc118">
+</span><span class="sc125">//  $aDocBase = Object for the file name base of each document in the uploads directory</span><span class="sc118">
+</span><span class="sc125">//  $title = title of the web page</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Class Objects:</span><span class="sc118">
+</span><span class="sc125">//  none</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//////////////////////////////////////////////////////////////////////////////////////////////////////</span><span class="sc118">
+</span><span class="sc121">function</span><span class="sc118"> getContent</span><span class="sc127">(</span><span class="sc123">$siteRoot</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$majorShort</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$majorLong</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$name</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$currentDirLandingPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$facultyPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$facilitiesPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$documentationCoursesPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$documentationOAMPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$documentationIACPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$documentationOnOArchivePage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$documentationWEAVEPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$sSPage</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$title</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$i</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">){</span><span class="sc118">
+
+    </span><span class="sc123">$content</span><span class="sc127">=</span><span class="sc119">"&lt;div id=\"site_content\"&gt;&lt;!-- begin site_content --&gt;
+    &lt;div class=\"container\"&gt;
+    &lt;div class=\"row\"&gt;
+                &lt;div id=\"content\" class=\"col-sm-12\" role=\"main\"&gt;
+                    &lt;h1&gt;Courses&lt;small&gt;"</span><span class="sc127">.</span><span class="sc123">$majorLong</span><span class="sc127">.</span><span class="sc119">"&lt;/small&gt;&lt;/h1&gt;"</span><span class="sc127">.</span><span class="sc118">
+                    getRow</span><span class="sc127">(</span><span class="sc123">$majorLong</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$majorShort</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$i</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$title</span><span class="sc127">)</span><span class="sc118">
+                    </span><span class="sc127">.</span><span class="sc119">"&lt;/div&gt;
+                &lt;/div&gt;&lt;!-- end row --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;!--close site_content--&gt;"</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$content</span><span class="sc127">;</span><span class="sc118">
+</span><span class="sc127">}</span><span class="sc118">
+
+</span><span class="sc125">//////////////////////////////////////////////////////////////////////////////////////////////////////</span><span class="sc118">
+</span><span class="sc125">//function getRow()</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//description:</span><span class="sc118">
+</span><span class="sc125">//this function builds a course documents page for each file associated with a specific majors course</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Vars Used:</span><span class="sc118">
+</span><span class="sc125">//  $majorLong = "Electronics and Computer Engineering"</span><span class="sc118">
+</span><span class="sc125">//  $majorShort = "ECET"</span><span class="sc118">
+</span><span class="sc125">//  $i = count of total files in uploads directory</span><span class="sc118">
+</span><span class="sc125">//  $aDocBase = Object for the file name base of each document in the uploads directory</span><span class="sc118">
+</span><span class="sc125">//  $title = title of the web page</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Class Objects:</span><span class="sc118">
+</span><span class="sc125">//  $aDoc - part of the AEDocs class used for setters and getters of document objects</span><span class="sc118">
+</span><span class="sc125">//  $aUtil - part of the AE_UTils class used for conditional object setters based on doc attributes</span><span class="sc118">
+</span><span class="sc125">//  $aSQL - part of the membersite_config class used for SQL connects and Queries</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//////////////////////////////////////////////////////////////////////////////////////////////////////</span><span class="sc118">
+
+</span><span class="sc121">function</span><span class="sc118"> getRow</span><span class="sc127">(</span><span class="sc123">$majorLong</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$majorShort</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$i</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$title</span><span class="sc127">){</span><span class="sc118">
+    
+    
+    </span><span class="sc125">//including all necessary libraries and instantiating corresponding objects</span><span class="sc118">
+    </span><span class="sc121">include_once</span><span class="sc118"> </span><span class="sc120">'../../include/AE_Docs.php'</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc123">$aDoc</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> AEDocs</span><span class="sc127">();</span><span class="sc118">
+    </span><span class="sc121">include_once</span><span class="sc118"> </span><span class="sc120">'../../include/AE_Utils.php'</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc123">$aUtil</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">new</span><span class="sc118"> AE_Utils</span><span class="sc127">();</span><span class="sc118">
+    </span><span class="sc121">include</span><span class="sc118"> </span><span class="sc120">'../../include/membersite_config.php'</span><span class="sc127">;</span><span class="sc118">  
+
+    </span><span class="sc123">$courses</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">""</span><span class="sc127">;</span><span class="sc125">//string to contain HTML that becomes built for each doc that the major requires</span><span class="sc118">
+    </span><span class="sc125">//$courseDocumentLinks = [];</span><span class="sc118">
+    
+    </span><span class="sc121">for</span><span class="sc118"> </span><span class="sc127">(</span><span class="sc123">$x</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc122">2</span><span class="sc127">;</span><span class="sc118"> </span><span class="sc123">$x</span><span class="sc118"> </span><span class="sc127">&lt;</span><span class="sc118"> </span><span class="sc123">$i</span><span class="sc127">;</span><span class="sc118"> </span><span class="sc123">$x</span><span class="sc127">++)</span><span class="sc118"> </span><span class="sc127">{</span><span class="sc125">//the reason $x starts at two is because $i is based off the file count so no matter what we run through for the . and .. file shourcuts built </span><span class="sc118">
+                    </span><span class="sc125">//into each file</span><span class="sc118">
+        </span><span class="sc125">//get all existing course documents that were uploaded</span><span class="sc118">
+        </span><span class="sc123">$uploadedCourseDocuments</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">.</span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">getCourseDocuments</span><span class="sc127">(</span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">],</span><span class="sc118"> </span><span class="sc123">$majorShort</span><span class="sc127">);</span><span class="sc118"> 
+        
+        </span><span class="sc125">//parse the document title tag based off underscores</span><span class="sc118">
+        </span><span class="sc123">$aDocParts</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">explode</span><span class="sc127">(</span><span class="sc120">'_'</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">]);</span><span class="sc118">
+        
+        </span><span class="sc125">//conditions to look for a specific document's tag</span><span class="sc118">
+        </span><span class="sc121">if</span><span class="sc127">(</span><span class="sc123">$aDocParts</span><span class="sc127">[</span><span class="sc122">0</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">!=</span><span class="sc118"> </span><span class="sc119">""</span><span class="sc118"> </span><span class="sc127">&amp;&amp;</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">!=</span><span class="sc118"> </span><span class="sc119">"."</span><span class="sc118"> </span><span class="sc127">&amp;&amp;</span><span class="sc118"> </span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">]</span><span class="sc118"> </span><span class="sc127">!=</span><span class="sc118"> </span><span class="sc119">".."</span><span class="sc127">){</span><span class="sc118">   
+            </span><span class="sc121">if</span><span class="sc127">(</span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">courseSyllabusDocument</span><span class="sc127">(</span><span class="sc119">"CET"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"syllabus"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDocParts</span><span class="sc127">)){</span><span class="sc118">
+
+                    </span><span class="sc123">$courseDocList</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">courseDocs</span><span class="sc127">(</span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">);</span><span class="sc118">                  
+                    
+                    </span><span class="sc125">//sets the course number</span><span class="sc118">
+                    </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">setCourseNumber</span><span class="sc127">(</span><span class="sc123">$aDocParts</span><span class="sc127">[</span><span class="sc122">2</span><span class="sc127">]);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//sets the course name based off the course number retrieved from the uploaded document</span><span class="sc118">
+                    </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">setCourseName</span><span class="sc127">(</span><span class="sc123">$aSQL</span><span class="sc127">-&gt;</span><span class="sc118">courseName</span><span class="sc127">(</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">()));</span><span class="sc118">
+                    
+                    </span><span class="sc125">//creates the link to the course page</span><span class="sc118">
+                    </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">setLinkToCoursesPage</span><span class="sc127">(</span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">].</span><span class="sc119">".php"</span><span class="sc127">);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//creates a link to the syllabus referenced to build the course page</span><span class="sc118">
+                    </span><span class="sc123">$aLink</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">"../../ViewerJS/#../uploads/"</span><span class="sc127">.</span><span class="sc123">$aDocBase</span><span class="sc127">[</span><span class="sc123">$x</span><span class="sc127">].</span><span class="sc119">".pdf"</span><span class="sc127">;</span><span class="sc118">
+                    
+                    </span><span class="sc125">//sets the major tag</span><span class="sc118">
+                    </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">setMajorTagShort</span><span class="sc127">(</span><span class="sc123">$aDocParts</span><span class="sc127">[</span><span class="sc122">0</span><span class="sc127">].</span><span class="sc119">" - "</span><span class="sc127">.</span><span class="sc123">$aDocParts</span><span class="sc127">[</span><span class="sc122">1</span><span class="sc127">]);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//sets the course description based off the course number retrieved from the uploaded document</span><span class="sc118">
+                    </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">setCourseDescription</span><span class="sc127">(</span><span class="sc123">$aSQL</span><span class="sc127">-&gt;</span><span class="sc118">courseDescription</span><span class="sc127">(</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">()));</span><span class="sc118">
+                    
+                    </span><span class="sc125">//create an array for all the homework links to be passed into the container</span><span class="sc118">
+                    </span><span class="sc123">$hwkLinks</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">hwkDocumentLinks</span><span class="sc127">(</span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc119">"Lab1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab3"</span><span class="sc127">);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//create an array for all the Lab links to be passed into the container</span><span class="sc118">
+                    </span><span class="sc123">$labLinks</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">labDocumentLinks</span><span class="sc127">(</span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc119">"Hwk1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk3"</span><span class="sc127">);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//create an array for all the Exam links to be passed into the container</span><span class="sc118">
+                    </span><span class="sc123">$examLinks</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">courseExamLinks</span><span class="sc127">(</span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc119">"Lab1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab3"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk3"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Project"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"syllabus"</span><span class="sc127">);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//create an array for all the Project links to be passed into the container</span><span class="sc118">
+                    </span><span class="sc123">$projectLinks</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">courseProjectDocument</span><span class="sc127">(</span><span class="sc123">$uploadedCourseDocuments</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc119">"Lab1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Lab3"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk1"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk2"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Hwk3"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"Exam"</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc119">"syllabus"</span><span class="sc127">);</span><span class="sc118">
+                    
+                    </span><span class="sc125">//build the html link associated with the course article row</span><span class="sc118">
+                    </span><span class="sc123">$courseRow</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc119">"&lt;article id=\"section_"</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">().</span><span class="sc119">"-"</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">majorTagShort</span><span class="sc127">().</span><span class="sc119">"---"</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseName</span><span class="sc127">().</span><span class="sc119">"\"&gt;
+                                    &lt;h2&gt;&lt;a href=\""</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">linkToCoursesPage</span><span class="sc127">().</span><span class="sc119">"\"&gt;"</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">majorTagShort</span><span class="sc127">().</span><span class="sc119">"-"</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">().</span><span class="sc119">" - "</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseName</span><span class="sc127">().</span><span class="sc119">"&lt;/a&gt;&lt;/h2&gt;
+                                    "</span><span class="sc127">.</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseDescription</span><span class="sc127">().</span><span class="sc119">" 
+                                    &lt;/article&gt;"</span><span class="sc127">;</span><span class="sc118">
+                    </span><span class="sc123">$courses</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$courses</span><span class="sc127">.</span><span class="sc123">$courseRow</span><span class="sc127">;</span><span class="sc125">//appending the course row html string list </span><span class="sc118">
+                    
+                    </span><span class="sc125">//for each link that exists build a courses page containing all the homework for the course</span><span class="sc118">
+                    </span><span class="sc121">if</span><span class="sc127">(</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">LinkToCoursesPage</span><span class="sc127">()</span><span class="sc118"> </span><span class="sc127">!=</span><span class="sc118"> </span><span class="sc119">""</span><span class="sc127">){</span><span class="sc118">
+                        </span><span class="sc123">$fh</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc121">fopen</span><span class="sc127">(</span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">linkToCoursesPage</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc120">'w'</span><span class="sc127">);</span><span class="sc118"> </span><span class="sc125">//or die("error")</span><span class="sc118">
+                       
+                       </span><span class="sc125">//this is where we build the page function call to build the container for the </span><span class="sc118">
+                       </span><span class="sc125">//content i.e. basic html structure for page </span><span class="sc118">
+                        </span><span class="sc123">$container</span><span class="sc118"> </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aUtil</span><span class="sc127">-&gt;</span><span class="sc118">buildCoursePage</span><span class="sc127">(</span><span class="sc123">$majorShort</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$majorLong</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$title</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">majorTagShort</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseNumber</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseName</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc123">$aDoc</span><span class="sc127">-&gt;</span><span class="sc118">courseDescription</span><span class="sc127">(),</span><span class="sc118"> </span><span class="sc123">$aLink</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$hwkLinks</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$labLinks</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$examLinks</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$projectLinks</span><span class="sc127">);</span><span class="sc118">
+                        
+                        </span><span class="sc121">fwrite</span><span class="sc127">(</span><span class="sc123">$fh</span><span class="sc127">,</span><span class="sc118"> </span><span class="sc123">$container</span><span class="sc127">);</span><span class="sc125">//write or overwrite to the html webpage</span><span class="sc118">
+                    </span><span class="sc127">}</span><span class="sc118">   
+
+            </span><span class="sc127">}</span><span class="sc118">
+            </span><span class="sc121">else</span><span class="sc127">{</span><span class="sc118"> </span><span class="sc127">}</span><span class="sc125">//do nothing because we are still in the for loop</span><span class="sc118">
+        </span><span class="sc127">}</span><span class="sc118"> 
+        </span><span class="sc121">else</span><span class="sc127">{</span><span class="sc118"> </span><span class="sc127">}</span><span class="sc125">//do nothing because we are still in the for loop</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+  </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc123">$courses</span><span class="sc127">;</span><span class="sc118"> </span><span class="sc125">// this returns the courses string list for the current page</span><span class="sc118">
+</span><span class="sc127">}</span><span class="sc118">
+
+</span><span class="sc18">?&gt;</span></div></body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc3 {
+	color: #FF8000;
+}
+.sc4 {
+	color: #808080;
+}
+.sc5 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc6 {
+}
+.sc8 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc12 {
+	color: #800000;
+}
+.sc13 {
+	color: #8000FF;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">-- ---------------------------------------------------------------------------------</span><span class="sc0">
+</span><span class="sc1">-- bcd.vhd</span><span class="sc0">
+</span><span class="sc1">-- </span><span class="sc0">
+</span><span class="sc1">-- description:</span><span class="sc0">
+</span><span class="sc1">-- bcd controller for Altera DE2 board </span><span class="sc0">
+</span><span class="sc1">--  This is a library used to properly output a binary coded display to the onboard</span><span class="sc0">
+</span><span class="sc1">--  seven segment displays </span><span class="sc0">
+</span><span class="sc1">--</span><span class="sc0">
+</span><span class="sc1">-- PROCESS:</span><span class="sc0">
+</span><span class="sc1">-- </span><span class="sc0">
+</span><span class="sc1">-- Copywright 2017 &amp;copy; rrespino.com</span><span class="sc0">
+</span><span class="sc1">--  All rights reserved  </span><span class="sc0">
+</span><span class="sc1">-- =================================================================================</span><span class="sc0">
+</span><span class="sc1">-- </span><span class="sc0">
+</span><span class="sc1">-- Edits and Profreading done</span><span class="sc0">
+</span><span class="sc1">--  by:___________________  Date:__|__|__</span><span class="sc0">
+</span><span class="sc1">--    Note:_____________________________________</span><span class="sc0">
+</span><span class="sc1">--       rrespino.com            2017</span><span class="sc0">
+</span><span class="sc1">--           Cleanup for iframe rendering</span><span class="sc0">
+</span><span class="sc1">-- </span><span class="sc0">
+</span><span class="sc1">-- ---------------------------------------------------------------------------------</span><span class="sc0">
+
+</span><span class="sc8">LIBRARY</span><span class="sc0"> </span><span class="sc12">IEEE</span><span class="sc5">;</span><span class="sc0">
+</span><span class="sc8">USE</span><span class="sc0"> </span><span class="sc12">IEEE</span><span class="sc5">.</span><span class="sc12">STD_LOGIC_1164</span><span class="sc5">.</span><span class="sc8">ALL</span><span class="sc5">;</span><span class="sc0">
+
+</span><span class="sc8">ENTITY</span><span class="sc0"> </span><span class="sc6">BCD</span><span class="sc0"> </span><span class="sc8">IS</span><span class="sc0"> </span><span class="sc8">PORT</span><span class="sc0"> </span><span class="sc5">(</span><span class="sc0">
+    </span><span class="sc6">in_bcd</span><span class="sc5">:</span><span class="sc0"> </span><span class="sc8">IN</span><span class="sc0"> </span><span class="sc13">STD_LOGIC_VECTOR</span><span class="sc5">(</span><span class="sc3">3</span><span class="sc0"> </span><span class="sc8">DOWNTO</span><span class="sc0"> </span><span class="sc3">0</span><span class="sc5">);</span><span class="sc0">
+    </span><span class="sc6">segs</span><span class="sc5">:</span><span class="sc0"> </span><span class="sc8">OUT</span><span class="sc0"> </span><span class="sc13">STD_LOGIC_VECTOR</span><span class="sc5">(</span><span class="sc3">1</span><span class="sc0"> </span><span class="sc8">TO</span><span class="sc0"> </span><span class="sc3">7</span><span class="sc5">));</span><span class="sc0">
+</span><span class="sc8">END</span><span class="sc0"> </span><span class="sc6">BCD</span><span class="sc5">;</span><span class="sc0">
+
+</span><span class="sc8">ARCHITECTURE</span><span class="sc0"> </span><span class="sc6">Behavioral</span><span class="sc0"> </span><span class="sc8">OF</span><span class="sc0"> </span><span class="sc6">BCD</span><span class="sc0"> </span><span class="sc8">IS</span><span class="sc0">
+</span><span class="sc8">BEGIN</span><span class="sc0">
+</span><span class="sc8">PROCESS</span><span class="sc5">(</span><span class="sc6">in_bcd</span><span class="sc5">)</span><span class="sc0">
+    </span><span class="sc8">BEGIN</span><span class="sc0">
+        </span><span class="sc8">CASE</span><span class="sc0"> </span><span class="sc6">in_bcd</span><span class="sc0"> </span><span class="sc8">IS</span><span class="sc0">
+        </span><span class="sc1">-- 0=on; 1=off</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0000"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0000001"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 0</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0001"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"1001111"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 1</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0010"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0010010"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 2</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0011"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0000110"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 3</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0100"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"1001100"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 4</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0101"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0100100"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 5</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0110"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0100000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 6</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"0111"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0001111"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 7</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1000"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0000000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 8</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1001"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0001100"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- 9</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1010"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0001000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- A</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1011"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"1100000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- b</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1100"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0110001"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- C</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1101"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"1000010"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- d</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1110"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0110000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- E</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc4">"1111"</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"0111000"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- F</span><span class="sc0">
+        </span><span class="sc8">WHEN</span><span class="sc0"> </span><span class="sc8">OTHERS</span><span class="sc0"> </span><span class="sc5">=&gt;</span><span class="sc0"> </span><span class="sc6">Segs</span><span class="sc0"> </span><span class="sc5">&lt;=</span><span class="sc0"> </span><span class="sc4">"1111111"</span><span class="sc5">;</span><span class="sc0">   </span><span class="sc1">-- all off</span><span class="sc0">
+        </span><span class="sc8">END</span><span class="sc0"> </span><span class="sc8">CASE</span><span class="sc5">;</span><span class="sc0">
+    </span><span class="sc8">END</span><span class="sc0"> </span><span class="sc8">PROCESS</span><span class="sc5">;</span><span class="sc0">
+</span><span class="sc8">END</span><span class="sc0"> </span><span class="sc6">Behavioral</span><span class="sc5">;</span><span class="sc0">
+</span></div></body>
+</html>

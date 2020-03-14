@@ -1,0 +1,55 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 24/02/2017 21:34
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-drawing-board-icon:before { content: "\f100"; }
+.flaticon-man:before { content: "\f101"; }
+.flaticon-man-cycling:before { content: "\f102"; }
+.flaticon-mountain:before { content: "\f103"; }
+.flaticon-running:before { content: "\f104"; }
+.flaticon-silhouette:before { content: "\f105"; }
+.flaticon-silhouette-1:before { content: "\f106"; }
+.flaticon-tent:before { content: "\f107"; }
+    
+    $font-Flaticon-drawing-board-icon: "\f100";
+    $font-Flaticon-man: "\f101";
+    $font-Flaticon-man-cycling: "\f102";
+    $font-Flaticon-mountain: "\f103";
+    $font-Flaticon-running: "\f104";
+    $font-Flaticon-silhouette: "\f105";
+    $font-Flaticon-silhouette-1: "\f106";
+    $font-Flaticon-tent: "\f107";

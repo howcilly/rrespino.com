@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+	font-weight: bold;
+}
+.sc18 {
+	color: #FF0000;
+	background: #FDF8E3;
+}
+.sc118 {
+	background: #FEFCF5;
+}
+.sc120 {
+	color: #808080;
+	background: #FEFCF5;
+}
+.sc121 {
+	font-weight: bold;
+	color: #0000FF;
+	background: #FEFCF5;
+}
+.sc123 {
+	color: #000080;
+	background: #FEFCF5;
+}
+.sc125 {
+	color: #008000;
+	background: #FEFCF5;
+}
+.sc127 {
+	color: #8000FF;
+	background: #FEFCF5;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc18">&lt;?PHP</span><span class="sc118">
+</span><span class="sc125">//---------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//ProjectName:  Capstone ABET accredidation website for </span><span class="sc118">
+</span><span class="sc125">//          ET college at NMSU</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//ModuleName: AE/include/AE_User.php</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Purpose:  This is the PHP class AEUser </span><span class="sc118">
+</span><span class="sc125">//          This class contains the functions for the User object</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Class Attributes:</span><span class="sc118">
+</span><span class="sc125">//  $UserSec_ID</span><span class="sc118">
+</span><span class="sc125">//  $UserSec_Password</span><span class="sc118">
+</span><span class="sc125">//  $Banner_ID</span><span class="sc118">
+</span><span class="sc125">//  $Full_Name</span><span class="sc118">
+</span><span class="sc125">//  $Email</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Author: Ronald Espinoza | rrespino@nmsu.edu</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Copywright 2016 &amp;copy;</span><span class="sc118">
+</span><span class="sc125">//New Mexico State University College of Engineering Technology</span><span class="sc118">
+</span><span class="sc125">// All rights reserved  </span><span class="sc118">
+</span><span class="sc125">//=================================================================================</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//Edits and Profreading done</span><span class="sc118">
+</span><span class="sc125">// by:___________________  Date:__|__|__</span><span class="sc118">
+</span><span class="sc125">//   Note:_____________________________________</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//---------------------------------------------------------------------------------</span><span class="sc118">
+
+
+
+</span><span class="sc121">class</span><span class="sc118"> AEUser</span><span class="sc127">{</span><span class="sc118">
+
+    </span><span class="sc125">//declaring vars for use in this class</span><span class="sc118">
+    </span><span class="sc121">VAR</span><span class="sc118"> </span><span class="sc123">$UserSec_ID</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc121">VAR</span><span class="sc118"> </span><span class="sc123">$UserSec_Password</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc121">VAR</span><span class="sc118"> </span><span class="sc123">$Banner_ID</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc121">VAR</span><span class="sc118"> </span><span class="sc123">$Full_Name</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc121">VAR</span><span class="sc118"> </span><span class="sc123">$Email</span><span class="sc127">;</span><span class="sc118">
+    
+    
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//  Below are the functions for getting, setting, and returning the string associated</span><span class="sc118">
+</span><span class="sc125">//  with the attribute UserSec_ID</span><span class="sc118">
+</span><span class="sc125">//  note: there is no UserSec_ID function because this handled by a SQL Query</span><span class="sc118">
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+    </span><span class="sc125">//this function sets the user security ID </span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> SetUserSec_ID</span><span class="sc127">(</span><span class="sc123">$UserSID</span><span class="sc127">){</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">UserSec_ID </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$UserSID</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//this functions purpose is to house the SQL calls to populate the user object</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> GetUserSec_ID</span><span class="sc127">(){</span><span class="sc118">
+        
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">true</span><span class="sc127">;</span><span class="sc125">//if able to properly retrieve a user security ID</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//  Below are the functions for getting, setting, and returning the string associated</span><span class="sc118">
+</span><span class="sc125">//  with the attribute Banner_ID</span><span class="sc118">
+</span><span class="sc125">//  </span><span class="sc118">
+</span><span class="sc125">//------------------------------------------------------------------------------------- </span><span class="sc118">
+    </span><span class="sc125">//this function sets the user banner ID </span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> SetBanner_ID</span><span class="sc127">(</span><span class="sc123">$BannerID</span><span class="sc127">){</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">Banner_ID </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$BannerID</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//this functions purpose is to house the SQL calls to populate the user object</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> GetBanner_ID</span><span class="sc127">(){</span><span class="sc118">
+        
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">true</span><span class="sc127">;</span><span class="sc125">//if able to properly retrieve a user banner ID</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//This functions purpose is to return the current sessions user name</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> UserBannerID</span><span class="sc127">(){</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">isset</span><span class="sc127">(</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'bID_of_user'</span><span class="sc127">])?</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'bID_of_user'</span><span class="sc127">]:</span><span class="sc120">''</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">   
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//  Below are the functions for getting, setting, and returning the string associated</span><span class="sc118">
+</span><span class="sc125">//  with the attribute Full_Name</span><span class="sc118">
+</span><span class="sc125">//  </span><span class="sc118">
+</span><span class="sc125">//------------------------------------------------------------------------------------- </span><span class="sc118">
+    </span><span class="sc125">//this function sets the user Full_Name</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> SetFull_Name</span><span class="sc127">(</span><span class="sc123">$FullName</span><span class="sc127">){</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">Full_Name </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$FullName</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//this functions purpose is to house the SQL calls to populate the user object</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> GetFull_Name</span><span class="sc127">(){</span><span class="sc118">
+        
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">true</span><span class="sc127">;</span><span class="sc125">//if able to properly retrieve a user name</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//This functions purpose is to return the current sessions user name</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> UserFullName</span><span class="sc127">(){</span><span class="sc118">
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">isset</span><span class="sc127">(</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'name_of_user'</span><span class="sc127">])?</span><span class="sc123">$_SESSION</span><span class="sc127">[</span><span class="sc120">'name_of_user'</span><span class="sc127">]:</span><span class="sc120">''</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//  Below are the functions for getting, setting, and returning the string associated</span><span class="sc118">
+</span><span class="sc125">//  with the attribute Email</span><span class="sc118">
+</span><span class="sc125">//  note: there is no Email function because this handled by a SQL Query</span><span class="sc118">
+</span><span class="sc125">//------------------------------------------------------------------------------------- </span><span class="sc118">
+    </span><span class="sc125">//this function sets the user email</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> SetEmail</span><span class="sc127">(</span><span class="sc123">$aeEmail</span><span class="sc127">){</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">Email </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$aeEmail</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//this functions purpose is to house the SQL calls to populate the user object</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> GetEmail</span><span class="sc127">(){</span><span class="sc118">
+        
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">true</span><span class="sc127">;</span><span class="sc125">//if able to properly retrieve a user email</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    
+</span><span class="sc125">//-------------------------------------------------------------------------------------</span><span class="sc118">
+</span><span class="sc125">//</span><span class="sc118">
+</span><span class="sc125">//  Below are the functions for getting, setting, and returning the string associated</span><span class="sc118">
+</span><span class="sc125">//  with the attribute UserSec_password</span><span class="sc118">
+</span><span class="sc125">//  note: there is no UserSec_Password function because this handled by a SQL Query</span><span class="sc118">
+</span><span class="sc125">//------------------------------------------------------------------------------------- </span><span class="sc118">
+    </span><span class="sc125">//this function sets the user password</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> SetUserSec_Password</span><span class="sc127">(</span><span class="sc123">$UserPWD</span><span class="sc127">){</span><span class="sc118">
+        </span><span class="sc123">$this</span><span class="sc127">-&gt;</span><span class="sc118">UserSec_Password </span><span class="sc127">=</span><span class="sc118"> </span><span class="sc123">$UserPWD</span><span class="sc127">;</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    </span><span class="sc125">//this functions purpose is to house the SQL calls to populate the user object</span><span class="sc118">
+    </span><span class="sc121">function</span><span class="sc118"> GetUserSec_Password</span><span class="sc127">(){</span><span class="sc118">
+        
+        </span><span class="sc121">return</span><span class="sc118"> </span><span class="sc121">true</span><span class="sc127">;</span><span class="sc125">//if able to properly retrieve a user password</span><span class="sc118">
+    </span><span class="sc127">}</span><span class="sc118">
+    
+    
+    
+</span><span class="sc127">}</span><span class="sc125">//end class AEUser</span><span class="sc118">
+</span><span class="sc18">?&gt;</span><span class="sc0">
+</span></div></body>
+</html>
